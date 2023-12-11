@@ -10,7 +10,7 @@ function Header() {
   );
 }
 
-function App() {
+export default function App() {
   return (
     <div>
       <Header />
@@ -20,5 +20,3 @@ function App() {
     </div>
   );
 }
-
-export default App;
