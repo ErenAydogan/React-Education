@@ -1,11 +1,7 @@
-function TabButton(props) {
-    function handleClick(){
-        console.log("Working...")
-    }
-
+function TabButton({buttonName, onSelect}) {
     return (
         <li>
-            <button onClick={handleClick}>{props.buttonName}</button>
+            <button onClick={onSelect}>{buttonName}</button>
         </li>
     );
 }
