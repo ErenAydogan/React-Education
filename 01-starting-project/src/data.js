@@ -42,8 +42,7 @@ export const EXAMPLES = {
         <div>
         <h1>Welcome {username}</h!>
         <p>Time to learn React!</p>
-        </div>
-        `,
+        </div>`,
     },
     props       :   {
         title       :   'Props',
@@ -51,8 +50,7 @@ export const EXAMPLES = {
         code        :   `
         function Welcome(props) {
             return <h!>Hello, {props.name}</h1>;
-        }
-        `,
+        }`,
     },
     state       :   {
         title       :   'State',
@@ -71,7 +69,6 @@ export const EXAMPLES = {
                     {isVisible && <p>Amazing details!</p>}
                 </div>
             }
-        }
-        `,
+        }`,
     },
-}
+};
