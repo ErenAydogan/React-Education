@@ -40,7 +40,7 @@ export default function App() {
           <div id="tab-content">
             <h3>{EXAMPLES[selectedTopic].title}</h3>
             <p>{EXAMPLES[selectedTopic].description}</p>
-            <pre>
+            <pre> 
               {EXAMPLES[selectedTopic].code}
             </pre>
           </div> ) : null 
