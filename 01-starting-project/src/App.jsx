@@ -34,6 +34,8 @@ export default function App() {
             <TabButton onSelect={() => handleSelect('props')} buttonName="Props" />
             <TabButton onSelect={() => handleSelect('state')} buttonName="State" />
           </menu>
+          { selectedTopic == undefined ? <p>Please select a topic!</p> : null }
+          
           { selectedTopic ? (
           <div id="tab-content">
             <h3>{EXAMPLES[selectedTopic].title}</h3>
@@ -41,7 +43,7 @@ export default function App() {
             <pre>
               {EXAMPLES[selectedTopic].code}
             </pre>
-          </div> ) : <p>Please select a topic!</p>
+          </div> ) : null 
           }
         </section>
       </main>
