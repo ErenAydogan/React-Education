@@ -13,6 +13,20 @@ export default function App() {
     setSelectedTopic(selectedButton);
   }
 
+  let tabContent = <p>Please select a topic!</p>;
+
+  if (selectedTopic) {
+    tabContent = (
+    <div id="tab-content">
+      <h3>{EXAMPLES[selectedTopic].title}</h3>
+      <p>{EXAMPLES[selectedTopic].description}</p>
+      <pre> 
+        {EXAMPLES[selectedTopic].code}
+      </pre>
+    </div>
+    );
+  }
+
   return (
     <div>
       <Header />
@@ -20,31 +34,18 @@ export default function App() {
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
-            <CoreConcept {...CORE_CONCEPTS[0]}/>
-            <CoreConcept {...CORE_CONCEPTS[1]}/>
-            <CoreConcept {...CORE_CONCEPTS[2]}/>
-            <CoreConcept {...CORE_CONCEPTS[3]}/>
+            {CORE_CONCEPTS.map((conceptItem) => <CoreConcept key={conceptItem.title} {...conceptItem} />)}
           </ul>
         </section>
         <section id="examples">
           <h2>Examples</h2>
           <menu>
-            <TabButton onSelect={() => handleSelect('components')} buttonName="Components" />
-            <TabButton onSelect={() => handleSelect('jsx')} buttonName="JSX" />
-            <TabButton onSelect={() => handleSelect('props')} buttonName="Props" />
-            <TabButton onSelect={() => handleSelect('state')} buttonName="State" />
+            <TabButton isSelected={selectedTopic === 'components'} onSelect={() => handleSelect('components')} buttonName="Components" />
+            <TabButton isSelected={selectedTopic === 'jsx'} onSelect={() => handleSelect('jsx')} buttonName="JSX" />
+            <TabButton isSelected={selectedTopic === 'props'} onSelect={() => handleSelect('props')} buttonName="Props" />
+            <TabButton isSelected={selectedTopic === 'state'} onSelect={() => handleSelect('state')} buttonName="State" />
           </menu>
-          { selectedTopic == undefined && <p>Please select a topic!</p> }
-          
-          { selectedTopic ? (
-          <div id="tab-content">
-            <h3>{EXAMPLES[selectedTopic].title}</h3>
-            <p>{EXAMPLES[selectedTopic].description}</p>
-            <pre> 
-              {EXAMPLES[selectedTopic].code}
-            </pre>
-          </div> ) : null 
-          }
+          {tabContent}
         </section>
       </main>
     </div>
