@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { Fragment, useState } from 'react';
 import { CORE_CONCEPTS } from './data';
 import Header from './components/Header/Header';
 import CoreConcept from './components/CoreConcept';
@@ -28,9 +28,9 @@ export default function App() {
   }
 
   return (
-    <div>
+    <> {/* It is used to avoid to use another div or fragment*/}
       <Header />
-      <main>
+      <>
         <section id="core-concepts">
           <h2>Core Concepts</h2>
           <ul>
@@ -47,7 +47,7 @@ export default function App() {
           </menu>
           {tabContent}
         </section>
-      </main>
-    </div>
+      </>
+    </>
   );
 }
