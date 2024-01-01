@@ -6,8 +6,10 @@ export default function App() {
   return (
     <> {/* It is used to avoid to use another div or fragment*/}
       <Header />
-      <CoreConcepts />
-      <Examples />
+      <main>
+        <CoreConcepts />
+        <Examples />
+      </main>
     </>
   );
 }
